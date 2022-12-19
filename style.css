@@ -1,0 +1,63 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: black;
+    animation: body-animate 2s alternate infinite 0s;
+}
+@keyframes body-animate {
+    from {
+        background-color: black;
+    }
+    to {
+        background-color: rgb(23, 23, 23);
+    }
+}
+.container {
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.container .loading-part {
+    position: relative;
+    width: 150px;
+    height: 150px;
+    border: 4px solid transparent;
+    border-top: 4px solid white;
+    border-radius: 50%;
+    animation: animate 3s linear infinite 0s;
+    margin: -var(); /* ამით არეგულირებ დააშორებ ერტმანეთს თუ დააახლოებ */
+}
+.container .loading-part::before {
+    content: "";
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: #fff;
+    position: absolute;
+    top: 15px;
+    left: 2px;
+    box-shadow: 0 0 0 7px rgb(255, 255, 255, 0.5),
+        0 0 0 10px rgb(255, 255, 255, 0.2), 0 0 0 13px rgb(255, 255, 255, 0.1);
+}
+@keyframes animate {
+    from {
+        transform: rotate(360deg);
+    }
+    to {
+        transform: rotate(0deg);
+    }
+}
+.container .loading-part:nth-child(3) {
+    position: absolute;
+    top: -66.66px;
+}
